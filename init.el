@@ -12,6 +12,8 @@
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path site-lisp-dir)
 
+(require 'better-defaults)
+
 (load-theme 'tango-dark)
 (setq-default indent-tabs-mode nil)
 
