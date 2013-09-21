@@ -1,9 +1,9 @@
 (require 'package)
 
 ;; Add melpa to package repos
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
-(package-initialize)
+;;(package-initialize)
 
 ;; Set path to dependencies
 (setq site-lisp-dir
@@ -11,6 +11,44 @@
 ;; Set up load path
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path site-lisp-dir)
+
+(require 'setup-package)
+
+;; Install extensions if they're missing
+(defun init--install-packages ()
+  (packages-install
+   '(magit
+     paredit
+     move-text
+     god-mode
+     gist
+     htmlize
+     visual-regexp
+     flycheck
+     flx
+     flx-ido
+     css-eldoc
+     yasnippet
+     smartparens
+     ido-vertical-mode
+     ido-at-point
+     simple-httpd
+     guide-key
+     nodejs-repl
+     restclient
+     highlight-escape-sequences
+     elisp-slime-nav
+     git-commit-mode
+     gitconfig-mode
+     gitignore-mode
+     clojure-mode
+     nrepl)))
+
+(condition-case nil
+    (init--install-packages)
+  (error
+   (package-refresh-contents)
+   (init--install-packages)))
 
 (require 'better-defaults)
 
