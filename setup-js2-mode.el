@@ -14,4 +14,6 @@
 
 (define-key js2-mode-map (kbd "TAB") 'js2-tab-properly)
 
+(setq-default js2-basic-offset 2) ; tab = 2 spaces
+
 (provide 'setup-js2-mode)
