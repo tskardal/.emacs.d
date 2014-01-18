@@ -42,7 +42,7 @@
      gitconfig-mode
      gitignore-mode
      clojure-mode
-     nrepl)))
+     cider)))
 
 (condition-case nil
     (init--install-packages)
