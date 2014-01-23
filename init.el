@@ -70,6 +70,7 @@
 (yas/global-mode 1)
 
 ;; Completion that uses many different methods to find options.
+(global-set-key "\M- " 'hippie-expand)
 (global-set-key (kbd "C-.") 'hippie-expand-no-case-fold)
 (global-set-key (kbd "C-:") 'hippie-expand-lines)
 

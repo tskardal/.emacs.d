@@ -1,2 +1,5 @@
 elpa/
 places
+backups/
+eshell/
+auto-save-list/
