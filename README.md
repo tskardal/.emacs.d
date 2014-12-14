@@ -1,4 +1,4 @@
 .emacs.d
 ========
 
-My emacs setup
+My Emacs setup. Using https://github.com/technomancy/better-defaults.
