@@ -1,3 +1,30 @@
+;; Some packages would be handy
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar my-packages
+  '(clojure-mode
+    clj-refactor
+    clojure-mode-extra-font-locking
+    cider
+    ido-ubiquitous
+    smex
+    rainbow-delimiters
+    rainbow-identifiers
+    smartparens
+    magit))
+
+(if (eq system-type 'darwin)
+    (add-to-list 'my-packages 'exec-path-from-shell))
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
 ;; Path to dependencies
 (setq site-lisp-dir
       (expand-file-name "site-lisp" user-emacs-directory))
