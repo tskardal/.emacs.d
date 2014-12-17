@@ -5,6 +5,8 @@
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 (defvar my-packages
   '(clojure-mode
@@ -16,7 +18,8 @@
     rainbow-delimiters
     rainbow-identifiers
     smartparens
-    magit))
+    magit
+    yasnippet))
 
 (if (eq system-type 'darwin)
     (add-to-list 'my-packages 'exec-path-from-shell))
@@ -48,3 +51,5 @@
 
 ;; Use home dir as default dir
 (setq default-directory (concat (getenv "HOME") "/"))
+
+(load "setup-clojure.el")

@@ -1,6 +1,6 @@
 (add-hook 'clojure-mode-hook
           (lambda ()
-            (require 'smartparens)
-            (require 'smartparens-config)
-            (smartparens-mode)
+            (smartparens-strict-mode)
             (sp-use-smartparens-bindings)))
+
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
