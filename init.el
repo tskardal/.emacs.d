@@ -53,3 +53,6 @@
 (setq default-directory (concat (getenv "HOME") "/"))
 
 (load "setup-clojure.el")
+
+;; Nice theme plx
+(load-theme 'deeper-blue)
