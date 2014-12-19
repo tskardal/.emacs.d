@@ -19,7 +19,8 @@
     rainbow-identifiers
     smartparens
     magit
-    yasnippet))
+    yasnippet
+    company))
 
 (if (eq system-type 'darwin)
     (add-to-list 'my-packages 'exec-path-from-shell))
@@ -56,3 +57,9 @@
 
 ;; Nice theme plx
 (load "themes.el")
+
+;; Load some snippets
+(when (require 'yasnippet nil 'noerror)
+  (progn
+    (yas/load-directory "~/.emacs.d/snippets")
+    (yas-global-mode t)))
