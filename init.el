@@ -5,8 +5,6 @@
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
 
 (defvar my-packages
   '(clojure-mode
@@ -22,12 +20,15 @@
     yasnippet
     company))
 
-(if (eq system-type 'darwin)
-    (add-to-list 'my-packages 'exec-path-from-shell))
+(when (member system-type '(darwin gnu/linux))
+  (add-to-list 'my-packages 'exec-path-from-shell))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+(when (member system-type '(darwin gnu/linux))
+  (exec-path-from-shell-initialize))
 
 ;; Path to dependencies
 (setq site-lisp-dir
@@ -63,3 +64,17 @@
   (progn
     (yas/load-directory "~/.emacs.d/snippets")
     (yas-global-mode t)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("1a85b8ade3d7cf76897b338ff3b20409cb5a5fbed4e45c6f38c98eee7b025ad4" "7bde52fdac7ac54d00f3d4c559f2f7aa899311655e7eb20ec5491f3b5c533fe8" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
