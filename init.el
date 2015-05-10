@@ -7,6 +7,7 @@
 
 (require 'better-defaults)
 (require 'setup-package)
+(require 'setup-git)
 (require 'setup-mac)
 
 ;; I want path from shell on both MacOS and GNU\Linux
