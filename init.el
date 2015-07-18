@@ -10,7 +10,10 @@
 (require 'setup-git)
 (require 'setup-mac)
 (package-require 'company)
+(require 'company)
+(global-company-mode)
 (require 'setup-clojure)
+(require 'setup-js)
 
 ;; I want path from shell on both MacOS and GNU\Linux
 (package-require 'exec-path-from-shell)
