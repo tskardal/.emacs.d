@@ -18,6 +18,7 @@
 (global-company-mode)
 (require 'setup-clojure)
 (require 'setup-haskell)
+(require 'setup-purescript)
 (require 'setup-js)
 
 ;; I want path from shell on both MacOS and GNU\Linux
