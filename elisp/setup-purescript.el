@@ -13,7 +13,6 @@
   :error-patterns
   ((error line-start
           (or (and "Error found:\n"
-                   (one-or-more not-newline) "\n"
                    "at " (file-name) " line " line ", column " column
                        (one-or-more not-newline)
                        (message (one-or-more (not (in "*")))))
